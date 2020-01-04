@@ -26,15 +26,12 @@ class yourTraining extends React.Component {
     ],
     trainingDays: [
       {
-        id: 0,
         date: "05-12-2019"
       },
       {
-        id: 1,
         date: "06-12-2019"
       },
       {
-        id: 2,
         date: "08-12-2019"
       }
     ],
@@ -64,8 +61,8 @@ class yourTraining extends React.Component {
       userSeries: [
         ...this.state.userSeries.filter(
           series =>
-            series.dateId !== this.state.activeDate ||
-            series.exerciseId !== this.state.exerciseId
+            series.date.date !== this.state.activeDate.date ||
+            series.exerciseId.id !== this.state.activeExercise.id
         ),
         activeSeries
       ]
@@ -77,6 +74,7 @@ class yourTraining extends React.Component {
   };
 
   selectExercise = exercise => {
+    console.log('new exe', exercise);
     this.setState({ activeExercise: exercise });
   };
 

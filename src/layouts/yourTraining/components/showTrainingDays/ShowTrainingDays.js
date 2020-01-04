@@ -14,19 +14,20 @@ export class ShowTrainingDays extends React.Component {
     _.forEach(userSeries, (item, key) => {});
     const only = userSeries.filter(
       series => series.exerciseId.id === activeExercise.id
+      //zmienić nazwe 
     );
+    console.log(userSeries);
 
     let isValid = true;
-    _.forEach(only, (item, key) => {
-      console.log(item, activeDate);
-      if (item.dateId.id !== activeDate.id) {
-        isValid = false;
-      }
-    });
+    // _.forEach(only, (item, key) => {
+    //   if (item.dateId.id !== activeDate.id) {
+    //     isValid = false;
+    //   }
+    // });
 
     if (isValid) {
       return only.map(trainingDay => (
-        <div key={trainingDay.dateId} className="trainingDayUnitHolder">
+        <div key={trainingDay.date} className="trainingDayUnitHolder">
           <span
             className="trainingDay"
             onClick={() =>
@@ -37,7 +38,7 @@ export class ShowTrainingDays extends React.Component {
               )
             }
           >
-            {trainingDay.dateId.date}
+            {trainingDay.date.date}
           </span>
         </div>
       ));
@@ -48,11 +49,9 @@ export class ShowTrainingDays extends React.Component {
     const repetitions = userSeries.filter(
       series => series.exerciseId.id === activeExercise.id
     );
-    console.log(userSeries);
     this.setState({
       //activeDate: userSeries.dateId.date
     });
-    console.log(this.state.activeDate);
   };
   render() {
     // let sets;

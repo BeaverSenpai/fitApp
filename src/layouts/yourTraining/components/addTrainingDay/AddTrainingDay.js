@@ -6,7 +6,6 @@ export class AddTrainingDay extends React.Component {
     this.state = {};
   }
 
-  dateIdCounter = 3;
   addTrainingDay = () => {
     let calendar = new Date(),
       today =
@@ -17,15 +16,12 @@ export class AddTrainingDay extends React.Component {
         calendar.getFullYear();
 
     const date = {
-      id: this.dateIdCounter,
       date: today
     };
-    this.dateIdCounter++;
     this.props.addTrainingDay(date);
   };
 
   render() {
-    console.log(this.dateIdCounter);
     const allDates = this.props.trainingDays.map(training => (
       <div key={training.date}>
         <li

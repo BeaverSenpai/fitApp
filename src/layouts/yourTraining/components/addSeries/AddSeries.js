@@ -14,18 +14,18 @@ export class AddSeries extends React.Component {
     });
   };
 
-  getActiveSeries = (dateId, exerciseId) => {
-    if (dateId == null || exerciseId == null) {
+  getActiveSeries = (date, exerciseId) => {
+    if (date == null || exerciseId == null) {
       return null;
     }
 
     for (let el of this.props.userSeries) {
-      if (el.dateId === dateId && el.exerciseId === exerciseId) {
+      if (el.date === date && el.exerciseId === exerciseId) {
         return el;
       }
     }
     const series = {
-      dateId,
+      date,
       exerciseId,
       repetitions: []
     };
